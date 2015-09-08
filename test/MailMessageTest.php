@@ -49,7 +49,7 @@ class MailMessageTest extends TestCase
         // [Mail file, attachment filename, attachment content]
         return [
             [__DIR__ . '/_files/mailWithAttachment.eml', ['test.pdf' => $content]],
-            [__DIR__ . '/_files/mailWithAttachmentAndPathInFilename.eml', ['_path_with_slashes_test.pdf' => $content]],
+            [__DIR__ . '/_files/mailWithAttachmentAndPathInFilename.eml', ['/path/with/slashes/test.pdf' => $content]],
             [__DIR__ . '/_files/mailWith2Attachments.eml', ['test.pdf' => $content, 'test2.pdf' => $content2,]],
         ];
     }

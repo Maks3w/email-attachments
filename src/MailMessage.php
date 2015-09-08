@@ -26,18 +26,19 @@ class MailMessage extends Message
 
         for ($counter = 1; $counter <= $this->countParts(); ++$counter) {
             $part = $this->getPart($counter);
-            try {
-                $type = $part->getHeader('content-disposition');
-            } catch (InvalidArgumentException $e) {
+            $partHeaders = $part->getHeaders();
+            if (!$partHeaders->has('content-disposition')) {
                 continue;
             }
+
+            $type = $part->getHeader('content-disposition');
             $fileString = explode(';', $type->getFieldValue());
             $type = $fileString[0];
 
             if (empty($type) || $type != 'attachment') {
                 continue;
             }
-            $this->attachments[$this->getFileName($fileString)] = $part->getContent();
+            $this->attachments[$this->getFileName($fileString[1])] = $part->getContent();
         }
     }
 
@@ -64,7 +65,7 @@ class MailMessage extends Message
      */
     protected function getFileName($fileString)
     {
-        $name = explode('=', $fileString[1]);
+        $name = explode('=', $fileString);
         $filename = $name[1]; // File name as see by the mail client.
         // Workaround for extra double quotes (") in the file name when sent from Yahoo Mail.
         $filename = str_replace('"', ' ', $filename);

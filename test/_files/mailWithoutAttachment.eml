@@ -1,0 +1,15 @@
+From: Sender <sender@example.com>
+To: Recipe <recipe@exmple.com>
+Subject: Some subject
+Date: Thu, 23 Jan 2014 13:52:44 +0000
+Message-ID: <xxxxxxx@yyyyyy>
+Content-Type: multipart/mixed;
+	boundary="_004_958A2F6DD06B9445A1E496F0B838468DBCAA2034EXOPOWNMAILBX1_"
+MIME-Version: 1.0
+
+--_004_958A2F6DD06B9445A1E496F0B838468DBCAA2034EXOPOWNMAILBX1_
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+
+
+--_004_958A2F6DD06B9445A1E496F0B838468DBCAA2034EXOPOWNMAILBX1_--

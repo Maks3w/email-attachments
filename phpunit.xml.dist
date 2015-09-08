@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+        bootstrap="vendor/autoload.php"
+        colors="true">
+    <testsuites>
+        <testsuite name="library">
+            <directory suffix="Test.php">./test</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src</directory>
+            <exclude>
+            </exclude>
+        </whitelist>
+    </filter>
+
+    <php>
+        <env name="IMAP_USER" value=""/>
+        <env name="IMAP_PASS" value=""/>
+        <env name="IMAP_HOST" value=""/>
+        <env name="IMAP_PORT" value="993"/>
+        <env name="IMAP_SSL" value="SSL"/>
+        <env name="SOURCE_FOLDER" value="src"/>
+    </php>
+
+</phpunit>

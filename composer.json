@@ -1,0 +1,34 @@
+{
+    "name": "maks3w/email-attachments",
+    "description": "Facade for retrieve email attachments with Zend\\Mail",
+    "keywords": [
+        "email",
+        "attachment"
+    ],
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Maks3w",
+            "email": "github.maks3w@virtualplanets.net"
+        }
+    ],
+    "homepage": "https://github.com/Maks3w/Psr7Assertions",
+    "require": {
+        "php": ">= 5.5",
+        "zendframework/zend-mail": "^2.0",
+        "fabpot/php-cs-fixer": "^1.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Maks3w\\EmailAttachments\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Maks3w\\EmailAttachments\\": "test/"
+        }
+    }
+}

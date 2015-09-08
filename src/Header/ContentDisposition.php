@@ -62,7 +62,7 @@ class ContentDisposition implements HeaderInterface
             return $prepared;
         }
 
-        $values = array($prepared);
+        $values = [$prepared];
         foreach ($this->parameters as $attribute => $value) {
             $values[] = sprintf('%s="%s"', $attribute, $value);
         }
@@ -87,11 +87,12 @@ class ContentDisposition implements HeaderInterface
     }
 
     /**
-     * Set the content disposition
+     * Set the content disposition.
      *
      * @param  string $disposition
      *
      * @throws InvalidArgumentException
+     *
      * @return ContentDisposition
      */
     public function setDisposition($disposition)
@@ -105,18 +106,19 @@ class ContentDisposition implements HeaderInterface
                     sprintf(
                         '%s expects to be "inline" or "attachment". Received "%s"',
                         __METHOD__,
-                        (string)$disposition
+                        (string) $disposition
                     )
                 );
                 break;
         }
 
         $this->disposition = $disposition;
+
         return $this;
     }
 
     /**
-     * Retrieve the content disposition
+     * Retrieve the content disposition.
      *
      * @return string
      */
@@ -126,19 +128,20 @@ class ContentDisposition implements HeaderInterface
     }
 
     /**
-     * Add a parameter pair
+     * Add a parameter pair.
      *
      * @param  string $name
      * @param  string $value
      *
      * @return ContentDisposition
+     *
      * @throws InvalidArgumentException for parameter names that do not follow RFC 2822
      * @throws InvalidArgumentException for parameter values that do not follow RFC 2822
      */
     public function addParameter($name, $value)
     {
         $name = strtolower($name);
-        $value = (string)$value;
+        $value = (string) $value;
 
         if (!HeaderValue::isValid($name)) {
             throw new InvalidArgumentException('Invalid content-disposition parameter name detected');
@@ -148,11 +151,12 @@ class ContentDisposition implements HeaderInterface
         }
 
         $this->parameters[$name] = $value;
+
         return $this;
     }
 
     /**
-     * Get all parameters
+     * Get all parameters.
      *
      * @return array
      */
@@ -162,7 +166,7 @@ class ContentDisposition implements HeaderInterface
     }
 
     /**
-     * Get a parameter by name
+     * Get a parameter by name.
      *
      * @param  string $name
      *
@@ -174,11 +178,12 @@ class ContentDisposition implements HeaderInterface
         if (isset($this->parameters[$name])) {
             return $this->parameters[$name];
         }
+
         return null;
     }
 
     /**
-     * Remove a named parameter
+     * Remove a named parameter.
      *
      * @param  string $name
      *
@@ -189,8 +194,10 @@ class ContentDisposition implements HeaderInterface
         $name = strtolower($name);
         if (isset($this->parameters[$name])) {
             unset($this->parameters[$name]);
+
             return true;
         }
+
         return false;
     }
 }
